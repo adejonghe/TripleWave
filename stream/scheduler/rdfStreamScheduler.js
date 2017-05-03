@@ -9,6 +9,7 @@ class RdfStreamScheduler extends stream.Transform {
         this.previousDataDate = null;
         this.err = 0.0;
         this.iteration = 0;
+        this.scale = options.configuration.get("scale");
     }
 
     _transform(data, enc, cb) {
@@ -27,6 +28,9 @@ class RdfStreamScheduler extends stream.Transform {
                     var sleepTime = deltaDataDate - this.err / this.iteration;
                 else
                     var sleepTime = deltaDataDate - this.err;
+                
+                sleepTime = sleepTime / this.scale;
+
                 debug("I should sleep ", sleepTime);
                 setTimeout(() => {
                     debug("I slept ", sleepTime, " [", this.err, "]");
