@@ -1,0 +1,42 @@
+# triplewave port
+port=8114
+# host
+hostname=localhost
+# root path
+path=/caprads
+
+# external address (use in case of proxy)
+#externaladdress=idlab.ugent.be/caprads
+
+mode=replay
+scale=100
+
+# endpoint for the websocket
+ws_stream_location=/stream
+ws_port=8124
+
+# where is possobile to connect to the wesbsocket (should match you apache / ngix configuration)
+ws_address=ws://localhost:8124/caprads/stream
+
+sources=triples
+
+#fuseki endpoint
+rdf_query_endpoint=http://localhost:3030/ds/query
+rdf_query_folder=examples/sparql
+
+rdf_update_endpoint=http://localhost:3030/ds/update
+
+#path to the file
+rdf_file=../rdf/09_12_18.jsonld
+
+#stream item pattern
+#rdf_stream_item_pattern=?key <http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime> ?time . ?time <http://www.w3.org/2006/time#inXSDDateTime> ?ts
+rdf_stream_item_pattern=?key <http://idlab.ugent.be/caprads/vocab#properties> ?p . ?p <http://idlab.ugent.be/caprads/vocab#timestamp> ?ts .
+#rdf_stream_item_pattern=?key <http://http://purl.org/geojson/vocab#properties> ?p . ?p <http://idlab.ugent.be/caprads/vocab#timestamp> ?ts .
+#rdf_stream_item_pattern=?key <http://idlab.ugent.be/caprads/vocab#timestamp> ?ts .
+rdf_stream_item_select_content_pattern=?key ?p ?o . OPTIONAL { ?o ?q ?r }
+rdf_stream_item_insert_content_pattern=?key ?p ?o . ?o ?q ?r .
+
+# location of the tbox
+#tbox_stream_location=http://purl.oclc.org/NET/ssnx/ssn
+tbox_stream_location=http://localhost:8080/caprads/caprads_ontology.owl

@@ -122,8 +122,10 @@ class SparqlDataGen extends stream.Readable {
                 var graph = triple.graph.value;
                 var key = triple.key.value;
 
-                var pattern = _this.configuration.get('rdf_stream_item_content_pattern');
-                insertQuery = insertQuery.split('[pattern]').join(pattern);
+                var select_pattern = _this.configuration.get('rdf_stream_item_select_content_pattern');
+                var insert_pattern = _this.configuration.get('rdf_stream_item_insert_content_pattern');
+                insertQuery = insertQuery.split('[select_pattern]').join(select_pattern);
+                insertQuery = insertQuery.split('[insert_pattern]').join(insert_pattern);
                 insertQuery = insertQuery.split('?key').join('<' + key + '>');
                 insertQuery = insertQuery.split('[g]').join(graph);
 
