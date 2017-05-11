@@ -1,7 +1,7 @@
 # triplewave port
 port=8114
 # host
-hostname=localhost
+hostname=triplewave
 # root path
 path=/caprads
 
@@ -16,15 +16,15 @@ ws_stream_location=/stream
 ws_port=8124
 
 # where is possobile to connect to the wesbsocket (should match you apache / ngix configuration)
-ws_address=ws://localhost:8124/caprads/stream
+ws_address=ws://triplewave:8124/caprads/stream
 
 sources=triples
 
 #fuseki endpoint
-rdf_query_endpoint=http://localhost:3030/ds/query
+rdf_query_endpoint=http://triplewave:3030/ds/query
 rdf_query_folder=examples/sparql
 
-rdf_update_endpoint=http://localhost:3030/ds/update
+rdf_update_endpoint=http://triplewave:3030/ds/update
 
 #path to the file
 rdf_file=../rdf/09_12_18.jsonld
@@ -39,4 +39,4 @@ rdf_stream_item_insert_content_pattern=?key ?p ?o . ?o ?q ?r .
 
 # location of the tbox
 #tbox_stream_location=http://purl.oclc.org/NET/ssnx/ssn
-tbox_stream_location=http://localhost:8080/caprads/caprads_ontology.owl
+tbox_stream_location=http://web:8080/caprads/caprads.owl
