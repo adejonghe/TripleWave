@@ -1,5 +1,5 @@
 {
-"@context": "https://raw.githubusercontent.com/adejonghe/pog/master/enigma_context.json",
+"@context": "https://raw.githubusercontent.com/adejonghe/pog-demo/master/context.json",
 "@graph": [
 {"geometry":{"type":"Point","@id":"http://idlab.ugent.be/caprads/geometry/Ob1473434396001","asWKT":{"@value":"POINT(3.756237 51.11657)","@type":"http://www.opengis.net/ont/geosparql#wktLiteral"}},"type":"caprads:Ship","properties":{"dwt":"14424","flag":"DK","gt_shiptype":"12","heading":"335","length":"230","destination":"BREVIK","lon":"3.756237","shiptype":"Cargo","speed":"0","elapsed":"2","w_left":"14","rot":"0","width":"26","l_fore":"16","course":"335","ship_id":"157073","shipname":"BEGONIA SEAWAYS","lat":"51.11657","timemillis":1473434396001,"@id":"http://idlab.ugent.be/caprads/properties/Ob1473434396001","timestamp":"2016-09-09T15:19:56.001Z"},"@id":"http://idlab.ugent.be/caprads/observation/Ob1473434396001"}
 ,
