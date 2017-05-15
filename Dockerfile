@@ -1,8 +1,4 @@
-FROM node
-
-RUN echo "deb http://http.debian.net/debian jessie-backports main" >> /etc/apt/sources.list
-
-RUN apt-get -qq update && apt-get -qq install -y -t jessie-backports openjdk-8-jdk 
+FROM joakimbeng/java-node
 
 COPY . /opt/tw
 
