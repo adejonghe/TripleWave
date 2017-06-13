@@ -21,15 +21,13 @@ class RdfStreamScheduler extends stream.Transform {
             return cb();
         } else {
             var currentDataDate = moment(data['http://www.w3.org/ns/prov#generatedAtTime']);
-            var deltaDataDate = currentDataDate.diff(this.previousDataDate, 'milliseconds')
-            debug('deltaDataDate: ', deltaDataDate, '(', currentDataDate.format('x'), '-', this.previousDataDate.format('x'), ')')
+            var deltaDataDate = currentDataDate.diff(this.previousDataDate, 'milliseconds') / this.scale;
+            debug('deltaDataDate: ', deltaDataDate, '((', currentDataDate.format('x'), '-', this.previousDataDate.format('x'), ')', '/', this.scale, ')')
             if (deltaDataDate > 0) {
                 if (this.iteration > 0)
                     var sleepTime = deltaDataDate - this.err / this.iteration;
                 else
                     var sleepTime = deltaDataDate - this.err;
-                
-                sleepTime = sleepTime / this.scale;
 
                 debug("I should sleep ", sleepTime);
                 setTimeout(() => {
